@@ -36,6 +36,7 @@ public class CustomerController {
     public String updateCustomer(Customer customer)
     {
         customerService.save(customer);
+        showList();
         return "redirect:/customers";
     }
 }
