@@ -51,6 +51,8 @@ public class ProductController {
         }
         List<String> listNameFile = new ArrayList<>();
         for (MultipartFile fileName:multipartFiles){
+
+
             listNameFile.add(fileName.getOriginalFilename());
         }
         try {
