@@ -67,7 +67,6 @@ public class ProductController {
         productService.save(product);
         ModelAndView modelAndView = new ModelAndView("/create");
         modelAndView.addObject("productForm", productForm);
-        modelAndView.addObject("productForm", productForm);
         modelAndView.addObject("message", "Created new product successfully !");
         return modelAndView;
     }
