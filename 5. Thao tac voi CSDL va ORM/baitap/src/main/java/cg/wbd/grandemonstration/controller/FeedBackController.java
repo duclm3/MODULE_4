@@ -39,12 +39,12 @@ public class FeedBackController {
         return "redirect:/feedbacks";
     }
 
-    @GetMapping("/increaseLike")
-    public String increaseLike() {
+    @GetMapping("/increaseLike/{id}")
+    public String increaseLike(@PathVariable long id ) {
         ModelAndView modelAndView = new ModelAndView("customers/index");
-        List<FeedBack> feedBacks = feedBackService.findAll();
-        modelAndView.addObject("feedBacks", feedBacks);
-        modelAndView.addObject("feedBack", new FeedBack());
-        return modelAndView;
+        FeedBack feedBack = feedBackService.findOne(id);
+        feedBack.setQuantityLike(feedBack.getQuantityLike()+1);
+        feedBackService.update(feedBack);
+        return "redirect:/feedbacks";
     }
 }

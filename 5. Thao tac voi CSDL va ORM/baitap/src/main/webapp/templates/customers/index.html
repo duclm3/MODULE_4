@@ -21,9 +21,14 @@
     <input type="submit" value="Comment">
 </form>
 <div th:each="c : ${feedBacks}">
+    <hr>
     <input type="hidden" name="id" th:value="${c.id}">
     <b th:text="${'+'}+${c.rate}+${' '}+${c.content}"></b>
-    <div th:text="${c.quantityLike}"><a th:href="@{/feedbacks/increaseLike/(c.id)}"></a></div>
+    <div>
+        <b th:text="${c.quantityLike}">like</b>
+        <a th:href="@{/feedbacks/increaseLike/{id}(id=${c.id})}" th:class="button" th:text="Like">Like</a>
+    </div>
+
 </div>
 
 <script>

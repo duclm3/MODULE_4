@@ -64,4 +64,31 @@ public class HibernateFeedBackService {
         }
         return null;
     }
+    public FeedBack update(FeedBack feedBack) {
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = sessionFactory.openSession();
+            transaction = session.beginTransaction();
+            FeedBack origin = findOne(feedBack.getId());
+            origin.setQuantityLike(feedBack.getQuantityLike());
+            origin.setRate(feedBack.getRate());
+            origin.setContent(feedBack.getContent());
+            origin.setNameAuthor(feedBack.getNameAuthor());
+            session.update(origin);
+            transaction.commit();
+            System.out.println(origin);
+            return origin;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return null;
+    }
 }

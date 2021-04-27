@@ -64,4 +64,15 @@ public class FeedBack {
     public void setQuantityLike(int quantityLike) {
         this.quantityLike = quantityLike;
     }
+
+    @Override
+    public String toString() {
+        return "FeedBack{" +
+                "id=" + id +
+                ", rate=" + rate +
+                ", nameAuthor='" + nameAuthor + '\'' +
+                ", content='" + content + '\'' +
+                ", quantityLike=" + quantityLike +
+                '}';
+    }
 }

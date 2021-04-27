@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Product Management</h3>
+<p>
+    <a th:href="@{/employee/viewCreate}">
+        Add new product
+    </a>
+</p>
+<table id = "products">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Avatar</th>
+        <th>Gender</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.date}"></td>
+        <td><img width="100" height="100" th:src="@{${employee.avatar}}" alt=""></td>
+        <td th:switch="${employee.gender}">
+            <p th:case="false">Man</p>
+            <p th:case="true">Women</p>
+        </td>
+        <td><a th:href="@{/employee/viewEdit/{id}(id=${employee.id})}">Edit</a></td>
+        <td><a th:href="@{/employee/delete/{id}(id=${employee.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
