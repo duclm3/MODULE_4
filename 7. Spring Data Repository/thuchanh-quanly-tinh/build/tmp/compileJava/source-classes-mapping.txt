@@ -1,0 +1,26 @@
+service/impl/ProvinceServiceImpl.java
+ service.impl.ProvinceServiceImpl
+model/Province.java
+ model.Province
+service/impl/CustomerServiceImpl.java
+ service.impl.CustomerServiceImpl
+repository/IProvinceRepository.java
+ repository.IProvinceRepository
+service/IProvinceService.java
+ service.IProvinceService
+model/Customer.java
+ model.Customer
+formatter/ProvinceFormatter.java
+ formatter.ProvinceFormatter
+repository/ICustomerRepository.java
+ repository.ICustomerRepository
+service/ICustomerService.java
+ service.ICustomerService
+controller/CustomerController.java
+ controller.CustomerController
+AppConfig.java
+ AppConfig
+WebConfig.java
+ WebConfig
+controller/ProvinceController.java
+ controller.ProvinceController
