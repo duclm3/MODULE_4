@@ -1,0 +1,13 @@
+package repository;
+
+import model.Customer;
+
+import java.util.List;
+
+public interface ICustomerRepository {
+    List<Customer> findAll();
+    void save(Customer customer);
+    void delete(Long id);
+    Customer findById(Long id);
+    boolean insertWithStoredProcedure(Customer customer);
+}
