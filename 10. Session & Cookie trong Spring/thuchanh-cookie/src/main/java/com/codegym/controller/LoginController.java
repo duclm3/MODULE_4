@@ -34,29 +34,25 @@ public class LoginController {
         if (user.getEmail().equals("admin@gmail.com") && user.getPassword().equals("12345")) {
             if (user.getEmail() != null)
                 setUser = user.getEmail();
-
-            // create cookie and set it in response
             Cookie cookie = new Cookie("setUser", setUser);
             cookie.setMaxAge(24 * 60 * 60); // đặt khoảng thời gian là 24h
             //response sẽ trả cookie về cho view sử dụng phương thức: response.addCookie(cookie);
             cookie.setValue("test@gmail.com");
             response.addCookie(cookie);
-
             //get all cookies
-            Cookie[] cookies = request.getCookies();
-            //iterate each cookie
-            for (Cookie ck : cookies) {
-                //display only the cookie with the name 'setUser'
-
-                if (ck.getName().equals("setUser")) {
-                    model.addAttribute("cookieValue", ck);
-                    break;
-                } else {
-                    ck.setValue("");
-                    model.addAttribute("cookieValue", ck);
-                    break;
-                }
-            }
+//            Cookie[] cookies = request.getCookies();
+//            //iterate each cookie
+//            for (Cookie ck : cookies) {
+//                //display only the cookie with the name 'setUser'
+//                if (ck.getName().equals("setUser")) {
+//                    model.addAttribute("cookieValue", ck);
+//                    break;
+//                } else {
+//                    ck.setValue("");
+//                    model.addAttribute("cookieValue", ck);
+//                    break;
+//                }
+//            }
             model.addAttribute("message", "Login success. Welcome ");
         } else {
             user.setEmail("");
