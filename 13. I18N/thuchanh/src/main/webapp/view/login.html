@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Form Login</title>
+</head>
+<body>
+<h1 th:text="#{language}"></h1>
+<a href="?lang=en">English</a> | <a href="?lang=vi">Vietnamese</a> | <a href="?lang=jav">Japanese</a>
+<form action="/login" method="post" th:object="${user}">
+  <label th:text="#{label.username}"></label>
+  <input type="text" name="username" th:field="*{username}">
+  <label th:text="#{label.password}"></label>
+  <input type="text" name="username" th:field="*{password}">
+  <input type="submit" value="LOGIN">
+</form>
+</body>
+</html>
